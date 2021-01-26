@@ -18,7 +18,11 @@ func PromptForConfigurationDetails(idpAccount *cfg.IDPAccount) error {
 
 	var err error
 
-	idpAccount.Provider, err = prompter.ChooseWithDefault("Please choose a provider:", idpAccount.Provider, providers)
+	defaultProvider := idpAccount.Provider
+	if defaultProvider == "" && len(providers) > 0 {
+		defaultProvider = providers[0]
+	}
+	idpAccount.Provider, err = prompter.ChooseWithDefault("Please choose a provider:", defaultProvider, providers)
 	if err != nil {
 		return errors.Wrap(err, "error selecting provider file")
 	}
