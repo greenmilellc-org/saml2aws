@@ -20,8 +20,8 @@ The process goes something like this:
 You can install this project using the following commands:
 
 ```bash
-brew tap greenmilellc-org/saml2aws
-brew install saml2aws
+brew tap greenmilellc-org/saml2aws https://github.com/greenmilellc-org/saml2aws
+brew install greenmilellc-org/saml2aws/saml2aws
 ```
 
 ## Table of Contents
