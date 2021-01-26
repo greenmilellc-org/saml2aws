@@ -28,6 +28,10 @@ func (cli *CliPrompter) RequestSecurityCode(pattern string) string {
 
 // ChooseWithDefault given the choice return the option selected with a default
 func (cli *CliPrompter) ChooseWithDefault(pr string, defaultValue string, options []string) (string, error) {
+	if defaultValue == "" && len(options) > 0 {
+		defaultValue = options[0]
+	}
+
 	selected := ""
 	prompt := &survey.Select{
 		Message: pr,
